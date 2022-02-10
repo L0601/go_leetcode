@@ -17,3 +17,10 @@ func TestGCD(t *testing.T) {
 
 	fmt.Println(transform(4, 6))
 }
+
+func TestFibo(t *testing.T) {
+	ar := generateFibo(1000000000)
+	for _, i := range ar {
+		fmt.Print(i, ",")
+	}
+}
