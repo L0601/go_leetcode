@@ -14,7 +14,6 @@ func TestGCD(t *testing.T) {
 	fmt.Println(gcd(4, 6))
 	fmt.Println(gcd(6, 4))
 
-
 	fmt.Println(transform(4, 6))
 }
 
