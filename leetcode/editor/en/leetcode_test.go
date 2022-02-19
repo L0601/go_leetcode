@@ -23,3 +23,17 @@ func TestFibo(t *testing.T) {
 		fmt.Print(i, ",")
 	}
 }
+
+func TestAdd(t *testing.T) {
+	fmt.Println(add("1234", 4))
+}
+
+func TestSegement(t *testing.T) {
+	fmt.Println(countSegments("  a dfja fwfew  we "))
+	fmt.Println(countSegments("Hello, my name is John"))
+}
+
+func TestIsland(t *testing.T) {
+	fmt.Println(numIslands([][]byte{{'1', '1', '1', '1', '0'}, {'1', '1', '0', '1', '0'}, {'1', '1', '0', '0', '0'}, {'0', '0', '0', '0', '0'}}))
+	fmt.Println(numIslands([][]byte{{'1', '0', '1', '1', '1'}, {'1', '0', '1', '0', '1'}, {'1', '1', '1', '0', '1'}}))
+}
