@@ -14,12 +14,8 @@ import (
 // @lc code=start
 func convertTime(current string, correct string) int {
 	diff := int(str2minute(correct) - str2minute(current))
-	if diff > 24*3600-diff {
-		// diff > 0
-		diff = 24*3600 - diff
-	}
 	if diff < 0 {
-		diff = 24*3600 + diff
+		diff = 24*60 + diff
 	}
 
 	return diff/60 + (diff%60)/15 + (diff%15)/5 + diff%5

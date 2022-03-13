@@ -39,29 +39,18 @@ func TestIsland(t *testing.T) {
 }
 
 func Test2345(t *testing.T) {
-	if convertTime("00:00", "00:01") != 1 {
-		t.FailNow()
-	}
+	fmt.Println(convertTime("00:00", "23:31") == 7)
+	fmt.Println(convertTime("00:00", "00:01") == 1)
+	fmt.Println(convertTime("00:00", "00:31") == 3)
+	fmt.Println(convertTime("00:00", "23:00") == 1)
+	fmt.Println(convertTime("05:00", "07:00") == 2)
+	fmt.Println(convertTime("07:00", "05:00") == 22)
+	fmt.Println(convertTime("23:59", "00:00") == 1)
+	fmt.Println(convertTime("12:40", "00:00") == 13)
+}
 
-	if convertTime("00:00", "00:31") != 3 {
-		t.FailNow()
-	}
-
-	if convertTime("00:00", "23:31") != 7 {
-		t.FailNow()
-	}
-
-	if convertTime("00:00", "23:00") != 1 {
-		t.FailNow()
-	}
-
-	if convertTime("05:00", "07:00") != 2 {
-		t.FailNow()
-	}
-
-	fmt.Println("done")
-	fmt.Println("1", convertTime("07:00", "05:00"))
-	// if convertTime("07:00", "05:00") != 22 {
-	// 	t.FailNow()
-	// }
+func Test1922(t *testing.T) {
+	fmt.Println(countGoodNumbers(1))
+	fmt.Println(countGoodNumbers(4))
+	fmt.Println(countGoodNumbers(50))
 }
