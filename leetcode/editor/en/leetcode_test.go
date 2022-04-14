@@ -37,3 +37,31 @@ func TestIsland(t *testing.T) {
 	fmt.Println(numIslands([][]byte{{'1', '1', '1', '1', '0'}, {'1', '1', '0', '1', '0'}, {'1', '1', '0', '0', '0'}, {'0', '0', '0', '0', '0'}}))
 	fmt.Println(numIslands([][]byte{{'1', '0', '1', '1', '1'}, {'1', '0', '1', '0', '1'}, {'1', '1', '1', '0', '1'}}))
 }
+
+func Test2345(t *testing.T) {
+	if convertTime("00:00", "00:01") != 1 {
+		t.FailNow()
+	}
+
+	if convertTime("00:00", "00:31") != 3 {
+		t.FailNow()
+	}
+
+	if convertTime("00:00", "23:31") != 7 {
+		t.FailNow()
+	}
+
+	if convertTime("00:00", "23:00") != 1 {
+		t.FailNow()
+	}
+
+	if convertTime("05:00", "07:00") != 2 {
+		t.FailNow()
+	}
+
+	fmt.Println("done")
+	fmt.Println("1", convertTime("07:00", "05:00"))
+	// if convertTime("07:00", "05:00") != 22 {
+	// 	t.FailNow()
+	// }
+}
