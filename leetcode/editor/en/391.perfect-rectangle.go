@@ -56,9 +56,12 @@
 
 package leetcode
 
+import "fmt"
+
 // @lc code=start
 func isRectangleCover(rectangles [][]int) bool {
 	left, right, top, bottom := 100001, -100001, -100001, 100001
+	mp := make(map[string]bool, len(rectangles))
 	area := int64(0)
 	for _, rec := range rectangles {
 		area += int64((rec[2] - rec[0]) * (rec[3] - rec[1]))
@@ -74,9 +77,12 @@ func isRectangleCover(rectangles [][]int) bool {
 		if rec[3] > top {
 			top = rec[3]
 		}
+		mp[fmt.Sprintf("%v_%v", rec[0], rec[1])] = true
+		mp[fmt.Sprintf("%v_%v", rec[2], rec[3])] = true
+
 	}
 
-	return area == int64((top-bottom)*(right-left))
+	return area == int64((top-bottom)*(right-left)) && mp[fmt.Sprintf("%v_%v", left, bottom)] && mp[fmt.Sprintf("%v_%v", left, top)] && mp[fmt.Sprintf("%v_%v", right, bottom)] && mp[fmt.Sprintf("%v_%v", right, top)]
 }
 
 // @lc code=end
