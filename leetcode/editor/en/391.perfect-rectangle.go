@@ -60,8 +60,11 @@ import "fmt"
 
 // @lc code=start
 func isRectangleCover(rectangles [][]int) bool {
+	// 所有长方形的面积之和，等于最大的长方形（外围）的面积
+	// 外围的四个点出现一次
+	// 中间的点出现偶数次
 	left, right, top, bottom := 100001, -100001, -100001, 100001
-	mp := make(map[string]bool, len(rectangles))
+	mp := make(map[string]bool, len(rectangles)*4)
 	area := int64(0)
 	for _, rec := range rectangles {
 		area += int64((rec[2] - rec[0]) * (rec[3] - rec[1]))
@@ -77,12 +80,30 @@ func isRectangleCover(rectangles [][]int) bool {
 		if rec[3] > top {
 			top = rec[3]
 		}
-		mp[fmt.Sprintf("%v_%v", rec[0], rec[1])] = true
-		mp[fmt.Sprintf("%v_%v", rec[2], rec[3])] = true
+		if mp[fmt.Sprintf("%v_%v", rec[0], rec[1])] {
+			delete(mp, fmt.Sprintf("%v_%v", rec[0], rec[1]))
+		} else {
+			mp[fmt.Sprintf("%v_%v", rec[0], rec[1])] = true
+		}
+		if mp[fmt.Sprintf("%v_%v", rec[2], rec[3])] {
+			delete(mp, fmt.Sprintf("%v_%v", rec[2], rec[3]))
+		} else {
+			mp[fmt.Sprintf("%v_%v", rec[2], rec[3])] = true
 
+		}
+		if mp[fmt.Sprintf("%v_%v", rec[0], rec[3])] {
+			delete(mp, fmt.Sprintf("%v_%v", rec[0], rec[3]))
+		} else {
+			mp[fmt.Sprintf("%v_%v", rec[0], rec[3])] = true
+		}
+		if mp[fmt.Sprintf("%v_%v", rec[2], rec[1])] {
+			delete(mp, fmt.Sprintf("%v_%v", rec[2], rec[1]))
+		} else {
+			mp[fmt.Sprintf("%v_%v", rec[2], rec[1])] = true
+		}
 	}
 
-	return area == int64((top-bottom)*(right-left)) && mp[fmt.Sprintf("%v_%v", left, bottom)] && mp[fmt.Sprintf("%v_%v", left, top)] && mp[fmt.Sprintf("%v_%v", right, bottom)] && mp[fmt.Sprintf("%v_%v", right, top)]
+	return area == int64((top-bottom)*(right-left)) && len(mp) == 4 && mp[fmt.Sprintf("%v_%v", left, bottom)] && mp[fmt.Sprintf("%v_%v", left, top)] && mp[fmt.Sprintf("%v_%v", right, bottom)] && mp[fmt.Sprintf("%v_%v", right, top)]
 }
 
 // @lc code=end
