@@ -62,6 +62,8 @@
  *
  */
 
+ package leetcode
+
 // @lc code=start
 func minBitFlips(start int, goal int) int {
 	bit, count := 1, 0

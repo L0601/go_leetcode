@@ -57,6 +57,8 @@
  *
  */
 
+ package leetcode
+
 // @lc code=start
 func triangularSum(nums []int) int {
 	first := nums
