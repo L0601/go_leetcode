@@ -55,8 +55,11 @@ func Test1922(t *testing.T) {
 	fmt.Println(countGoodNumbers(50))
 }
 
-
 func Test391(t *testing.T) {
-	a := isRectangleCover([][]int{{0,0,2,2},{1,1,3,3},{2,0,3,1},{0,3,3,4}})
+	a := isRectangleCover([][]int{{0, 0, 2, 2}, {1, 1, 3, 3}, {2, 0, 3, 1}, {0, 3, 3, 4}})
 	fmt.Print(a)
+}
+
+func Test1736(t *testing.T) {
+	fmt.Println(maximumTime("??:??") == "23:59")
 }
