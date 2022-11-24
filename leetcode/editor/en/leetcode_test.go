@@ -63,3 +63,8 @@ func Test391(t *testing.T) {
 func Test1736(t *testing.T) {
 	fmt.Println(maximumTime("??:??") == "23:59")
 }
+
+func Test2475(t *testing.T) {
+	unequalTriplets([]int{4, 4, 2, 4, 3})
+	unequalTriplets([]int{1, 2, 3})
+}
