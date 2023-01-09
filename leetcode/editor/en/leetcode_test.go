@@ -68,3 +68,7 @@ func Test2475(t *testing.T) {
 	unequalTriplets([]int{4, 4, 2, 4, 3})
 	unequalTriplets([]int{1, 2, 3})
 }
+
+func Test2515(t *testing.T) {
+	closetTarget([]string{"i", "eat", "leetcode"}, "ate", 0)
+}
